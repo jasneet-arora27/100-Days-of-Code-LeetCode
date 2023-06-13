@@ -16,7 +16,7 @@ public:
             }
         }
 
-        delete[] prime;
+        //delete[] prime;
 
         return count;
     }
