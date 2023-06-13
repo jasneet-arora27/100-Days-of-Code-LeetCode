@@ -2,11 +2,6 @@ class Solution {
 public:
     int commonFactors(int a, int b) 
     {
-        // if (a == b)
-        // {
-        //     return 2;
-        // }
-
         int small, big;
         if (a < b)
         {
