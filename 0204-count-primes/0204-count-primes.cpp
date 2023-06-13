@@ -16,8 +16,6 @@ public:
             }
         }
 
-        //delete[] prime;
-
         return count;
     }
 };
