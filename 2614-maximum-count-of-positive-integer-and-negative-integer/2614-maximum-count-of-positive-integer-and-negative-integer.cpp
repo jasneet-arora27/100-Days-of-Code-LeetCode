@@ -12,10 +12,6 @@ public:
             {
                 pos++;
             }
-            else
-            {
-                continue;
-            }
         }
         return max(pos, neg);
     }
