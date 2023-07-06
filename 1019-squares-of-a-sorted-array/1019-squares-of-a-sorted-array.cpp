@@ -8,7 +8,7 @@ public:
             nums[i] = nums[i] * nums[i];
         }
         //sort squared nums
-            sort(begin(nums), end(nums));
+        sort(begin(nums), end(nums));
         //return nums
         return nums;
     }
