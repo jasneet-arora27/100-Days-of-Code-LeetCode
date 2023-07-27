@@ -1,27 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <set>
+#include <unordered_set>
 
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> nums3;
-        for (int i = 0; i < nums1.size(); i++)
-        {
-            for (int j = 0; j < nums2.size(); j++)
-            {
-                if (nums1[i] == nums2[j])
-                {
-                    nums3.push_back(nums1[i]);
-                }
+        unordered_set<int> set1(nums1.begin(), nums1.end());
+        unordered_set<int> resultSet;
+
+        for (int num : nums2) {
+            if (set1.count(num)) {
+                resultSet.insert(num);
             }
         }
-        set<int> ansSet;
-        for (int n : nums3)
-        {
-            ansSet.insert(n);
-        }
-        vector<int> ansVector(ansSet.begin(), ansSet.end());
-        return ansVector;
+
+        vector<int> ans(resultSet.begin(), resultSet.end());
+        return ans;
     }
 };
