@@ -1,11 +1,28 @@
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        int single = 0;
+    int countOccur(vector<int>& nums, int n)
+    {
+        int count = 0;
         for (int i = 0; i < nums.size(); i++)
         {
-            single ^= nums[i];
+            if (nums[i] == n)
+            {
+                count++;
+            }
         }
-        return single;
+        return count;
+    }
+
+    int singleNumber(vector<int>& nums) 
+    {
+        int ans = nums[0];
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (countOccur(nums, nums[i]) == 1)
+            {
+                ans =  nums[i];
+            }
+        }    
+        return ans;
     }
 };
