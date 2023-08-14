@@ -1,21 +1,22 @@
 class Solution {
 public:
     int findLucky(vector<int>& arr) {
-        int hash[501] = {0};
+        int hash[1001] = {0};
 
-        for (int i = 0; i < arr.size(); i++)
+        for (int num : arr) 
         {
-            hash[arr[i]]++;
+            hash[num]++;
         }
 
         int largest = -1;
-        for (int i = 0; i < 501; i++)
+        for (int i = 0; i < 1001; i++) 
         {
-            if ((hash[i] == i) && (hash[i] > largest) && (hash[i] > 0))
+            if ((hash[i] == i) && (hash[i] > 0)) 
             {
                 largest = i;
             }
         }
+        
         return largest;
     }
 };
