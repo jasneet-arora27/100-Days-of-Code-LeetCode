@@ -5,14 +5,19 @@ public:
         int count = 0;
         for (int i = 0; i < items.size(); i++)
         {
-            for (int j = 0; j < 3; j++)
+            if (ruleKey == "type") 
             {
-                int index;
-                if (ruleKey == "type") index = 0;
-                else if (ruleKey == "color") index = 1;
-                else index = 2;
+                if (items[i][0] == ruleValue) count++;
+            }
 
-                if ((items[i][j] == ruleValue) && (j == index)) count++;
+            else if (ruleKey == "color")
+            {
+                if (items[i][1] == ruleValue) count++;
+            }
+
+            else if (ruleKey == "name")
+            {
+                if (items[i][2] == ruleValue) count++;
             }
         }
         return count;
