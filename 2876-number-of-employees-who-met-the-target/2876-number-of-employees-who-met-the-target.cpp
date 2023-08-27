@@ -4,7 +4,7 @@ public:
         int count = 0;
         for (int work : hours)
         {
-            if (work >= target) count++;
+            count += ((work >= target) && 1);
         }
         return count;
     }
