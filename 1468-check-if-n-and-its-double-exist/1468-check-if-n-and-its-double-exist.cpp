@@ -5,7 +5,7 @@ public:
         {
             for (int j = 0; j < arr.size(); j++)
             {
-                if ((i != j) && (arr[i] == 2 * arr[j]))
+                if ((i != j) && ((arr[i] == 2 * arr[j]) || (arr[j] == 2 * arr[i])))
                 {
                     return true;
                 }
