@@ -1,55 +1,49 @@
 class Solution {
 public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix) 
-    {
-        int m = matrix.size();
-        int n = matrix[0].size();   
-
-        int startRow = 0, endRow = m - 1;
-        int startCol = 0, endCol  = n - 1; 
-        int count = 0;
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int rows = matrix.size(), cols = matrix[0].size();
+        int top = 0, bottom = rows - 1, right = cols - 1, left = 0;
 
         vector<int> ans;
 
-        while ((startRow <= endRow) && (startCol <= endCol))
+        while ((top <= bottom) && (left <= right))
         {
-            // start row
-            for (int i = startCol; i <= endCol; i++)
+            // left to right
+            for (int i = left; i <= right; i++)
             {
-                ans.push_back(matrix[startRow][i]);
-                count++;
+                ans.push_back(matrix[top][i]);
             }
-            startRow++;
-            if (count == m * n) return ans;
-
-            // end column
-            for (int i = startRow; i <= endRow; i++)
+            top++;
+            
+            // top to bottom
+            for (int i = top; i <= bottom; i++)
             {
-                ans.push_back(matrix[i][endCol]);
-                count++;
+                ans.push_back(matrix[i][right]);
             }
-            endCol--;
-            if (count == m * n) return ans;
-
-            // end row
-            for (int i = endCol; i >= startCol; i--)
+            right--;
+            
+            // right to left
+            if (top <= bottom)
             {
-                ans.push_back(matrix[endRow][i]);
-                count++;
+                for (int i = right; i >= left; i--)
+                {
+                    ans.push_back(matrix[bottom][i]);
+                }
+                bottom--;
             }
-            endRow--;
-            if (count == m * n) return ans;
-
-            // start column
-            for (int i = endRow; i >= startRow; i--)
+            
+            // bottom to top
+            if (left <= right)
             {
-                ans.push_back(matrix[i][startCol]);
-                count++;
+                for (int i = bottom; i >= top; i--)
+                {
+                    ans.push_back(matrix[i][left]);
+                }
+                left++;
             }
-            startCol++;
-            if (count == m * n) return ans;
         }
 
+        // return ans
         return ans;
     }
 };
